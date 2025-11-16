@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Wedding Day!</title>
+    <meta property="og:title" content="Lee JunHyung & Lee SangEun">
+    <meta property="og:description" content="Sunday, November 30, 2025">
+    <meta property="og:image" content="images/thumbnail_and_top.jpeg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&family=Nanum+Myeongjo:wght@400;700&family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+</head>
+<body>
+    <!-- 메인 커버 (잠금화면 스타일) -->
+    <section class="cover">
+        <div class="cover-image">
+            <img src="images/thumbnail_and_top.jpeg" alt="웨딩 메인 사진">
+        </div>
+        
+        <!-- 상태바 -->
+        <div class="status-bar">
+            <span class="time-status"></span>
+            <div class="status-icons">
+                <svg class="signal-icon" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                    <rect x="0" y="10" width="2" height="4" fill="white" opacity="0.7"/>
+                    <rect x="4" y="7" width="2" height="7" fill="white" opacity="0.8"/>
+                    <rect x="8" y="4" width="2" height="10" fill="white" opacity="0.9"/>
+                    <rect x="12" y="1" width="2" height="13" fill="white"/>
+                    <rect x="16" y="0" width="2" height="14" fill="white"/>
+                </svg>
+                <svg class="battery-icon" width="24" height="14" viewBox="0 0 24 14" fill="none">
+                    <rect x="1" y="3" width="18" height="8" rx="2" fill="none" stroke="white" stroke-width="1"/>
+                    <rect x="2.5" y="4.5" width="13" height="5" rx="1" fill="white" opacity="0.85"/>
+                    <rect x="20" y="5.5" width="2" height="3" rx="1" fill="white" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+        
+        <!-- 잠금 아이콘 -->
+        <div class="lock-icon">
+            <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
+                <path d="M6 10V7C6 4.23858 8.23858 2 11 2C13.7614 2 16 4.23858 16 7V10" stroke="white" stroke-width="1" stroke-linecap="round"/>
+                <rect x="4" y="10" width="14" height="12" rx="2" fill="white" opacity="0.85"/>
+                <circle cx="11" cy="16" r="1.5" fill="black" opacity="0.6"/>
+            </svg>
+        </div>
+        
+        <!-- 날짜와 시간 -->
+        <div class="lockscreen-datetime">
+            <div class="lockscreen-date">11월 30일 일요일</div>
+            <div class="lockscreen-time">12:00</div>
+        </div>
+        
+        <!-- 알림 스타일 메시지 -->
+        <div class="notification">
+            <div class="notification-icon">
+                <img src="images/icon_heart.png" alt="하트">
+            </div>
+            <div class="notification-content">
+                <div class="notification-title">이준형 & 이상은 💗</div>
+                <div class="notification-text">WE'RE GETTING MARRIED!</div>
+            </div>
+            <div class="notification-time">방금 전</div>
+        </div>
+        
+        <!-- Swipe up 안내 -->
+        <div class="swipe-up">
+            <div class="swipe-line"></div>
+            <p>위로 스와이프하여 입장</p>
+        </div>
+    </section>
+
+    <!-- 인사말 -->
+    <section class="greeting" id="main-content">
+        <div class="couple-intro">
+            <div class="couple-photos">
+                <div class="groom-photo">
+                    <img src="images/groom.jpg" alt="신랑 사진">
+                    <span class="photo-label">신랑</span>
+                </div>
+                <div class="bride-photo">
+                    <img src="images/bride.jpg" alt="신부 사진">
+                    <span class="photo-label">신부</span>
+                </div>
+            </div>
+            <h1 class="couple-names">이준형 <span class="heart">♥</span> 이상은</h1>
+            <p class="wedding-info">
+                <span class="wedding-date-full">2025년 11월 30일 일요일 낮 12시</span><br>
+                <span class="wedding-venue">수서 식물관PH</span>
+            </p>
+        </div>
+        
+        <h2 class="section-title">초대합니다</h2>
+        <p class="greeting-text">
+            함께하는 시간이 쌓여<br>
+            서로에게 가장 소중한 사람이 되었습니다.<br><br>
+
+            이제 평생을 함께하며 채워나갈<br>
+            저희의 첫걸음에 오셔서 자리를 빛내주시길 바랍니다.
+        </p>
+        <div class="parents">
+            <div class="parent-info">
+                <p><strong>이용우 · 최연애</strong>의 장남 <strong>준형</strong></p>
+            </div>
+            <div class="parent-info">
+                <p><strong>이상열 · 임영희</strong>의 장녀 <strong>상은</strong></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 영상 -->
+    <section class="video-section">
+        <div class="video-container">
+            <iframe
+                src="https://www.youtube.com/embed/JA3NQjTsPOA"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </section>
+
+    <!-- 갤러리 -->
+    <section class="gallery">
+        <h2 class="section-title">갤러리</h2>
+        <div class="gallery-grid">
+            <img src="images/gallery_01.jpeg" alt="우리의 순간 1" onclick="openGalleryModal(0)">
+            <img src="images/gallery_02.jpeg" alt="우리의 순간 2" onclick="openGalleryModal(1)">
+            <img src="images/gallery_03.jpeg" alt="우리의 순간 3" onclick="openGalleryModal(2)">
+            <img src="images/gallery_04.jpeg" alt="우리의 순간 4" onclick="openGalleryModal(3)">
+            <img src="images/gallery_05.jpeg" alt="우리의 순간 5" onclick="openGalleryModal(4)">
+            <img src="images/gallery_06.jpeg" alt="우리의 순간 6" onclick="openGalleryModal(5)">
+            <img src="images/gallery_07.jpeg" alt="우리의 순간 7" onclick="openGalleryModal(6)">
+            <img src="images/gallery_08.jpeg" alt="우리의 순간 8" onclick="openGalleryModal(7)">
+            <img src="images/gallery_09.jpeg" alt="우리의 순간 9" onclick="openGalleryModal(8)">
+            <img src="images/gallery_10.jpeg" alt="우리의 순간 10" onclick="openGalleryModal(9)">
+            <img src="images/gallery_11.jpeg" alt="우리의 순간 11" onclick="openGalleryModal(10)">
+            <img src="images/gallery_12.jpeg" alt="우리의 순간 12" onclick="openGalleryModal(11)">
+        </div>
+        
+    </section>
+
+    <!-- 캘린더 -->
+    <section class="calendar-section">
+        <h2 class="section-title">11월 30일 일요일 낮 12시</h2>
+        <div class="calendar">
+            <div class="calendar-header">
+                <span class="month">2025년 11월</span>
+            </div>
+            <div class="weekdays">
+                <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+            </div>
+            <div class="dates">
+                <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span>1</span>
+                <span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span>
+                <span>9</span><span>10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+                <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span>
+                <span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span>
+                <span class="wedding-day">30</span>
+            </div>
+        </div>
+        <p class="d-day">결혼식까지 <span id="dday">D-100</span></p>
+    </section>
+
+    <!-- 오시는 길 -->
+    <section class="location">
+        <h2 class="section-title">오시는 길</h2>
+        <div class="venue-info">
+            <h3>수서 식물관PH</h3>
+            <p>서울특별시 강남구 광평로34길 24<br>
+            02-445-0405</p>
+        </div>
+        
+        <div class="map-container">
+            <div id="map" style="width:100%;height:350px;"></div>
+        </div>
+
+        <div class="transport">
+            <div class="transport-item">
+                <h4>🚇 지하철</h4>
+                <p>수서역 지하철 1번 출구에서 도보 약 15분<br>
+                (SRT 1번 출구 X)<br>
+                <strong>1번 출구 앞 예식장 무료 셔틀버스 운행</strong></p>
+            </div>
+            <div class="transport-item">
+                <h4>🚌 버스</h4>
+                <p>태화기독교사회복지관 정류장 또는<br>
+                수서119안전센터앞 정류장 하차<br>
+                하차 후 도보 약 5분</p>
+            </div>
+            <div class="transport-item">
+                <h4>🚗 자가용</h4>
+                <p>수서역 공영주차장 이용<br>
+                (서울 강남구 수서동 735)<br>
+                주차 후 1번 출구 앞 셔틀버스 이용<br>
+                <span style="color: #d4a574; font-size: 13px;">※ 예식장 내 주차가 불가하여 양해 부탁드립니다</span></p>
+            </div>
+        </div>
+
+        <div class="map-buttons">
+            <button onclick="window.open('https://kko.kakao.com/UowG-ug9Ai')">카카오맵</button>
+            <button onclick="window.open('https://naver.me/Ge5RF5Ed')">네이버지도</button>
+        </div>
+    </section>
+
+    <!-- 마음 전하기 -->
+    <section class="account">
+        <h2 class="section-title">마음 전하기</h2>
+        <p class="account-intro">
+            참석이 어려우신 분들을 위해<br>
+            계좌번호를 기재하였습니다.<br>
+            너그러운 마음으로 양해 부탁드립니다.
+        </p>
+        
+        <p class="flower-notice">
+            화환은 정중히 사양합니다.<br>
+            좋은 마음만 감사히 받겠습니다.
+        </p>
+        
+        <div class="account-box">
+            <h3>신랑측</h3>
+            <div class="account-item" onclick="toggleAccount(this)">
+                <p class="name">신랑 이준형</p>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="account-details">
+                <p>신한은행 110-378-071816</p>
+                <button onclick="copyAccount('110-378-071816')">계좌 복사</button>
+                <button onclick="callPerson('010-2172-0115')">전화하기</button>
+            </div>
+            
+            <div class="account-item" onclick="toggleAccount(this)">
+                <p class="name">아버지 이용우</p>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="account-details">
+                <p>하나은행 484-910323-61007</p>
+                <button onclick="copyAccount('484-910323-61007')">계좌 복사</button>
+                <button onclick="callPerson('010-5092-0115')">전화하기</button>
+            </div>
+            
+            <div class="account-item" onclick="toggleAccount(this)">
+                <p class="name">어머니 최연애</p>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="account-details">
+                <p>NH농협 170888-56-138430</p>
+                <button onclick="copyAccount('170888-56-138430')">계좌 복사</button>
+                <button onclick="callPerson('010-9310-5780')">전화하기</button>
+            </div>
+        </div>
+
+        <div class="account-box">
+            <h3>신부측</h3>
+            <div class="account-item" onclick="toggleAccount(this)">
+                <p class="name">신부 이상은</p>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="account-details">
+                <p>신한은행 110-469-251008</p>
+                <button onclick="copyAccount('110-469-251008')">계좌 복사</button>
+                <button onclick="callPerson('010-2491-4028')">전화하기</button>
+            </div>
+
+            <div class="account-item" onclick="toggleAccount(this)">
+                <p class="name">아버지 이상열</p>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="account-details">
+                <p>우리은행 485-002201-12-001</p>
+                <button onclick="copyAccount('485-002201-12-001')">계좌 복사</button>
+                <button onclick="callPerson('010-8837-4029')">전화하기</button>
+            </div>
+
+            <div class="account-item" onclick="toggleAccount(this)">
+                <p class="name">어머니 임영희</p>
+                <span class="arrow">▼</span>
+            </div>
+            <div class="account-details">
+                <p>우리은행 775-016916-02-201</p>
+                <button onclick="copyAccount('775-016916-02-201')">계좌 복사</button>
+                <button onclick="callPerson('010-5690-4028')">전화하기</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 방명록 제거하고 순서 변경 -->
+
+    <!-- 하단 공유 버튼 -->
+    <section class="share">
+        <h2 class="section-title">공유하기</h2>
+        <div class="share-buttons">
+            <button onclick="shareKakao()" class="kakao">카카오톡</button>
+            <button onclick="copyLink()" class="link">링크 복사</button>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p>© 2025 준형 ❤️ 상은 Wedding</p>
+    </footer>
+
+    <!-- 갤러리 모달 -->
+    <div id="galleryModal" class="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <button class="nav-btn prev-btn" onclick="prevImage()">&#8249;</button>
+            <button class="nav-btn next-btn" onclick="nextImage()">&#8250;</button>
+            <div class="modal-counter">
+                <span id="currentIndex">1</span> / <span id="totalImages">22</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 카카오맵 API -->
+    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f98ae585053071a8a0b18d6d5f9d45f4&libraries=services"></script>
+    
+    <script src="script.js"></script>
+    <script>
+        // 현재 시간 표시
+        document.addEventListener('DOMContentLoaded', function() {
+            function updateStatusTime() {
+                const now = new Date();
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const timeStatus = document.querySelector('.time-status');
+                if (timeStatus) {
+                    timeStatus.textContent = `${hours}:${minutes}`;
+                }
+            }
+            
+            updateStatusTime();
+            setInterval(updateStatusTime, 1000);
+            
+            // 갤러리 모달 초기화
+            initializeGallery();
+            
+            // 카카오맵 초기화
+            if (window.kakao && kakao.maps) {
+                // 지도를 표시할 div
+                var mapContainer = document.getElementById('map');
+                
+                // 주소-좌표 변환 객체를 생성합니다
+                var geocoder = new kakao.maps.services.Geocoder();
+                
+                // 주소로 좌표를 검색합니다
+                geocoder.addressSearch('서울특별시 강남구 광평로34길 24', function(result, status) {
+                    
+                    // 정상적으로 검색이 완료됐으면 
+                     if (status === kakao.maps.services.Status.OK) {
+                    
+                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+                        
+                        var mapOption = {
+                            center: coords,
+                            level: 3
+                        };
+                        
+                        var map = new kakao.maps.Map(mapContainer, mapOption);
+                        
+                        // 결과값으로 받은 위치를 마커로 표시합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map,
+                            position: coords
+                        });
+                
+                        // 인포윈도우 내용
+                        var iwContent = '<div style="padding:8px 10px; width:180px; text-align:center;">' +
+                                        '<strong style="font-size:14px;">수서 식물관PH</strong><br>' +
+                                        '<span style="font-size:12px; color:#666;">서울 강남구 광평로34길 24</span>' +
+                                        '</div>';
+                        
+                        // 인포윈도우 생성
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: iwContent
+                        });
+                        
+                        // 마커에 클릭이벤트 등록
+                        kakao.maps.event.addListener(marker, 'click', function() {
+                            infowindow.open(map, marker);
+                        });
+                        
+                        // 초기에 인포윈도우 표시
+                        infowindow.open(map, marker);
+                        
+                        // 지도 컨트롤 추가
+                        var zoomControl = new kakao.maps.ZoomControl();
+                        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+                    } else {
+                        // 주소 검색에 실패한 경우 기본 좌표 사용
+                        var defaultCoords = new kakao.maps.LatLng(37.4870, 127.1010);
+                        var mapOption = {
+                            center: defaultCoords,
+                            level: 3
+                        };
+                        var map = new kakao.maps.Map(mapContainer, mapOption);
+                        var marker = new kakao.maps.Marker({
+                            map: map,
+                            position: defaultCoords
+                        });
+                    }
+                });
+            }
+        });
+
+        // 갤러리 관련 함수들
+        let currentImageIndex = 0;
+        const galleryImages = [
+            'images/gallery_01.jpeg',
+            'images/gallery_02.jpeg',
+            'images/gallery_03.jpeg',
+            'images/gallery_04.jpeg',
+            'images/gallery_05.jpeg',
+            'images/gallery_06.jpeg',
+            'images/gallery_07.jpeg',
+            'images/gallery_08.jpeg',
+            'images/gallery_09.jpeg',
+            'images/gallery_10.jpeg',
+            'images/gallery_11.jpeg',
+            'images/gallery_12.jpeg',
+            'images/gallery_13.jpeg',
+            'images/gallery_14.jpeg',
+            'images/gallery_15.jpeg',
+            'images/gallery_16.jpeg',
+            'images/gallery_17.jpeg',
+            'images/gallery_18.jpeg',
+            'images/gallery_19.jpeg'
+        ];
+
+        function initializeGallery() {
+            const modal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            // 모달 외부 클릭시 닫기
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeGalleryModal();
+                }
+            });
+            
+            // 키보드 이벤트
+            document.addEventListener('keydown', function(e) {
+                if (modal.style.display === 'block') {
+                    if (e.key === 'Escape') closeGalleryModal();
+                    if (e.key === 'ArrowLeft') prevImage();
+                    if (e.key === 'ArrowRight') nextImage();
+                }
+            });
+            
+            // 터치 이벤트 (스와이프)
+            let startX = 0;
+            let startY = 0;
+            
+            modalImage.addEventListener('touchstart', function(e) {
+                startX = e.touches[0].clientX;
+                startY = e.touches[0].clientY;
+            });
+            
+            modalImage.addEventListener('touchend', function(e) {
+                if (!startX || !startY) return;
+                
+                let endX = e.changedTouches[0].clientX;
+                let endY = e.changedTouches[0].clientY;
+                
+                let diffX = startX - endX;
+                let diffY = startY - endY;
+                
+                // 수평 스와이프가 수직 스와이프보다 클 때만 처리
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    if (diffX > 0) {
+                        nextImage(); // 왼쪽으로 스와이프 = 다음 이미지
+                    } else {
+                        prevImage(); // 오른쪽으로 스와이프 = 이전 이미지
+                    }
+                }
+                
+                startX = 0;
+                startY = 0;
+            });
+        }
+        
+        function openGalleryModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('galleryModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            modalImage.src = galleryImages[index];
+            modal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // 스크롤 방지
+            updateModalCounter();
+            
+            // 다음 2장과 이전 2장 미리 로딩
+            preloadImages(index);
+        }
+        
+        function preloadImages(currentIndex) {
+            // 미리 로딩할 이미지 인덱스 계산
+            const preloadIndices = [];
+            
+            // 다음 2장
+            for (let i = 1; i <= 2; i++) {
+                const nextIndex = (currentIndex + i) % galleryImages.length;
+                preloadIndices.push(nextIndex);
+            }
+            
+            // 이전 2장
+            for (let i = 1; i <= 2; i++) {
+                const prevIndex = (currentIndex - i + galleryImages.length) % galleryImages.length;
+                preloadIndices.push(prevIndex);
+            }
+            
+            // 이미지 미리 로딩
+            preloadIndices.forEach(index => {
+                if (index !== currentIndex) {
+                    const img = new Image();
+                    img.src = galleryImages[index];
+                }
+            });
+        }
+        
+        function closeGalleryModal() {
+            const modal = document.getElementById('galleryModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // 스크롤 복원
+        }
+        
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+            updateModalCounter();
+            preloadImages(currentImageIndex);
+        }
+        
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('modalImage').src = galleryImages[currentImageIndex];
+            updateModalCounter();
+            preloadImages(currentImageIndex);
+        }
+        
+        function updateModalCounter() {
+            document.getElementById('currentIndex').textContent = currentImageIndex + 1;
+            document.getElementById('totalImages').textContent = galleryImages.length;
+        }
+    </script>
+</body>
+</html>
