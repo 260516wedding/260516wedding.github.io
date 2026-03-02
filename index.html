@@ -317,8 +317,8 @@
         </div>
     </div>
 
-    <!-- 카카오맵 API -->
-    <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=f98ae585053071a8a0b18d6d5f9d45f4&libraries=services"></script>
+    <!-- naver map API -->
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qz58jweso&submodules=geocoder"></script>
     
     <script src="script.js"></script>
     <script>
@@ -341,69 +341,73 @@
             initializeGallery();
             
             // 카카오맵 초기화
-            if (window.kakao && kakao.maps) {
-                // 지도를 표시할 div
+            if (window.naver && naver.maps) {
                 var mapContainer = document.getElementById('map');
                 
-                // 주소-좌표 변환 객체를 생성합니다
-                var geocoder = new kakao.maps.services.Geocoder();
-                
-                // 주소로 좌표를 검색합니다
-                geocoder.addressSearch('부산 기장군 일광읍 학리2길 6', function(result, status) {
-                    
-                    // 정상적으로 검색이 완료됐으면 
-                     if (status === kakao.maps.services.Status.OK) {
-                    
-                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-                        
-                        var mapOption = {
-                            center: coords,
-                            level: 3
-                        };
-                        
-                        var map = new kakao.maps.Map(mapContainer, mapOption);
-                        
-                        // 결과값으로 받은 위치를 마커로 표시합니다
-                        var marker = new kakao.maps.Marker({
-                            map: map,
-                            position: coords
-                        });
-                
-                        // 인포윈도우 내용
-                        var iwContent = '<div style="padding:8px 10px; width:180px; text-align:center;">' +
-                                        '<strong style="font-size:14px;">오린하우스</strong><br>' +
-                                        '<span style="font-size:12px; color:#666;">부산 기장군 일광읍 학리2길 6</span>' +
-                                        '</div>';
-                        
-                        // 인포윈도우 생성
-                        var infowindow = new kakao.maps.InfoWindow({
-                            content: iwContent
-                        });
-                        
-                        // 마커에 클릭이벤트 등록
-                        kakao.maps.event.addListener(marker, 'click', function() {
-                            infowindow.open(map, marker);
-                        });
-                        
-                        // 초기에 인포윈도우 표시
-                        infowindow.open(map, marker);
-                        
-                        // 지도 컨트롤 추가
-                        var zoomControl = new kakao.maps.ZoomControl();
-                        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
-                    } else {
-                        // 주소 검색에 실패한 경우 기본 좌표 사용
-                        var defaultCoords = new kakao.maps.LatLng(37.4870, 127.1010);
-                        var mapOption = {
-                            center: defaultCoords,
-                            level: 3
-                        };
-                        var map = new kakao.maps.Map(mapContainer, mapOption);
-                        var marker = new kakao.maps.Marker({
-                            map: map,
-                            position: defaultCoords
-                        });
+                // 오린하우스 주소
+                var address = '부산 기장군 일광읍 학리2길 6';
+
+                // 주소로 좌표 검색 (지오코딩)
+                naver.maps.Service.geocode({
+                    query: address
+                }, function(status, response) {
+                    if (status !== naver.maps.Service.Status.OK) {
+                        console.log('주소 검색 실패. 좌표를 직접 입력하는 방식을 권장합니다.');
+                        return;
                     }
+
+                    var result = response.v2,
+                        items = result.addresses;
+
+                    // 검색된 좌표
+                    var coords = new naver.maps.LatLng(items[0].y, items[0].x);
+
+                    // 지도 생성 옵션
+                    var mapOptions = {
+                        center: coords,
+                        zoom: 16, // 네이버지도 확대 레벨 (보통 15~17이 적당)
+                        zoomControl: true,
+                        zoomControlOptions: {
+                            position: naver.maps.Position.TOP_RIGHT
+                        }
+                    };
+
+                    // 지도 생성
+                    var map = new naver.maps.Map(mapContainer, mapOptions);
+
+                    // 마커 생성
+                    var marker = new naver.maps.Marker({
+                        position: coords,
+                        map: map
+                    });
+
+                    // 인포윈도우(정보창) 내용 디자인
+                    var iwContent = [
+                        '<div style="padding:12px; min-width:180px; text-align:center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius:8px; background:white;">',
+                        '   <strong style="font-size:15px; display:block; margin-bottom:4px;">오린하우스</strong>',
+                        '   <span style="font-size:12px; color:#666;">부산 기장군 일광읍 학리2길 6</span>',
+                        '</div>'
+                    ].join('');
+
+                    var infowindow = new naver.maps.InfoWindow({
+                        content: iwContent,
+                        borderWidth: 0,
+                        backgroundColor: "transparent",
+                        anchorSkew: true,
+                        pixelOffset: new naver.maps.Point(0, -10) // 마커 위로 살짝 띄우기
+                    });
+
+                    // 마커 클릭 시 정보창 열고 닫기
+                    naver.maps.Event.addListener(marker, "click", function(e) {
+                        if (infowindow.getMap()) {
+                            infowindow.close();
+                        } else {
+                            infowindow.open(map, marker);
+                        }
+                    });
+
+                    // 처음에 정보창 바로 열어두기
+                    infowindow.open(map, marker);
                 });
             }
         });
@@ -411,9 +415,9 @@
         // 갤러리 관련 함수들
         let currentImageIndex = 0;
         const galleryImages = [
-            'img/gallery01.jpeg',
-            'img/gallery02.jpg',
-            'img/gallery03.jpeg',
+            'img/gallery_01.jpeg',
+            'img/gallery_02.jpg',
+            'img/gallery_03.jpeg',
             // 'images/gallery_04.jpeg',
             // 'images/gallery_05.jpeg',
             // 'images/gallery_06.jpeg',
