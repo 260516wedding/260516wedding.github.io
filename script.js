@@ -201,7 +201,7 @@ function loadSampleGuestbook() {
 // 카카오 SDK 초기화 및 공유
 function initKakao() {
     // 여기에 카카오 개발자 콘솔에서 발급받은 JavaScript 키를 입력하세요
-    const KAKAO_APP_KEY = 'f98ae585053071a8a0b18d6d5f9d45f4';
+    const KAKAO_APP_KEY = '28da005101601f34e446e85cc9a0bf4c';
     
     if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
         try {
@@ -225,9 +225,9 @@ function shareKakao() {
         Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
-                title: 'Lee JunHyung & Lee SangEun',
-                description: 'Sunday, November 30, 2025',
-                imageUrl: window.location.origin + '/images/thumbnail_and_top.jpeg',
+                title: 'Wookjin Ahn & Minkyeong Kim',
+                description: 'Saturday, May 16, 2026',
+                imageUrl: window.location.origin + '/img/cover.jpeg',
                 link: {
                     mobileWebUrl: window.location.href,
                     webUrl: window.location.href,
@@ -252,7 +252,7 @@ function shareKakao() {
 // 기존 방식 (SDK 실패시 대체)
 function fallbackKakaoShare() {
     const url = window.location.href;
-    const text = '준형 ❤️ 상은 결혼합니다\n2025년 11월 30일 일요일 낮 12시\n수서 식물관PH';
+    const text = '욱진 ❤️ 민경 결혼합니다\n2026년 5월 16일 토요일 낮 12시\n부산 오린하우스';
     
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     
