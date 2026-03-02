@@ -181,20 +181,21 @@
 
         <div class="transport">
             <div class="transport-item">
-                <h4>🚗 제1주차장</h4>
+                <h4>🅿️ 제1주차장</h4>
                 <p>부산 기장군 일광읍 학리 287-2<br>
                 쪽문까지 도보 3분<br>
                 <!-- <strong>1번 출구 앞 예식장 무료 셔틀버스 운행</strong></p> -->
             </div>
             <div class="transport-item">
-                <h4>🚗 제2주차장</h4>
+                <h4>🅿️ 제2주차장</h4>
                 <p>부산 기장군 일광읍 학리 251-8<br>
                 쪽문까지 도보 3분
             </div>
             <div class="transport-item">
                 <h4>🚇 지하철</h4>
-                <p>부산 동해선 일광역 1번 출구에서 도보 약 15분<br>
-                (SRT 1번 출구 X)<br>
+                <p>부산 동해선 일광역 1번 출구에서 도보 약 33분<br>
+                택시 약 5분<br>
+                버스 약 6분<br>
                 <!-- <strong>1번 출구 앞 예식장 무료 셔틀버스 운행</strong></p> -->
                 <!-- <span style="color: #d4a574; font-size: 13px;">※ 예식장 내 주차가 불가하여 양해 부탁드립니다</span></p> -->
             </div>
@@ -339,59 +340,98 @@
             // 갤러리 모달 초기화
             initializeGallery();
             
-            // 네이버지도 초기화 (에러 없는 좌표 직접 입력 방식)
+            // 네이버지도 초기화
             if (window.naver && naver.maps) {
                 var mapContainer = document.getElementById('map');
                 
-                // 오린하우스 위도, 경도 좌표 (직접 입력)
-                var coords = new naver.maps.LatLng(35.259208, 129.243568);
+                // 오린하우스 중심 좌표
+                var centerCoords = new naver.maps.LatLng(35.259208, 129.243568);
 
-                // 지도 생성 옵션
                 var mapOptions = {
-                    center: coords,
-                    zoom: 16,
+                    center: centerCoords,
+                    zoom: 16, // 초기 확대 레벨
                     zoomControl: true,
                     zoomControlOptions: {
                         position: naver.maps.Position.TOP_RIGHT
                     }
                 };
 
-                // 지도 생성
                 var map = new naver.maps.Map(mapContainer, mapOptions);
 
-                // 마커 생성
-                var marker = new naver.maps.Marker({
-                    position: coords,
-                    map: map
-                });
+                // 지도에 표시할 장소 목록
+                var locations = [
+                    {
+                        name: '오린하우스',
+                        lat: 35.259208,
+                        lng: 129.243568,
+                        type: 'main'
+                    },
+                    {
+                        name: '제1주차장',
+                        lat: 35.258567,
+                        lng: 129.241928,
+                        type: 'parking'
+                    },
+                    {
+                        name: '제2주차장',
+                        lat: 35.258798,
+                        lng: 129.244669,
+                        type: 'parking'
+                    }
+                ];
 
-                // 인포윈도우(정보창) 내용 디자인
-                var iwContent = [
-                    '<div style="padding:12px; min-width:180px; text-align:center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius:8px; background:white;">',
-                    '   <strong style="font-size:15px; display:block; margin-bottom:4px;">오린하우스</strong>',
-                    '   <span style="font-size:12px; color:#666;">부산 기장군 일광읍 학리2길 6</span>',
-                    '</div>'
-                ].join('');
+                // 📌 주차장 마커들을 따로 담아둘 배열
+                var parkingMarkers = [];
 
-                var infowindow = new naver.maps.InfoWindow({
-                    content: iwContent,
-                    borderWidth: 0,
-                    backgroundColor: "transparent",
-                    anchorSkew: true,
-                    pixelOffset: new naver.maps.Point(0, -10) // 마커 위로 띄우기
-                });
+                for (var i = 0; i < locations.length; i++) {
+                    (function(loc) {
+                        var position = new naver.maps.LatLng(loc.lat, loc.lng);
+                        var markerOptions = {
+                            position: position,
+                            map: map
+                        };
 
-                // 마커 클릭 시 정보창 열고 닫기
-                naver.maps.Event.addListener(marker, "click", function(e) {
-                    if (infowindow.getMap()) {
-                        infowindow.close();
-                    } else {
-                        infowindow.open(map, marker);
+                        if (loc.type === 'main') {
+                            markerOptions.icon = {
+                                content: [
+                                    '<div style="background-color: #555; color: white; padding: 6px 12px; border-radius: 20px; font-size: 14px; font-weight: 500; box-shadow: 0 2px 6px rgba(0,0,0,0.3); border: 1.5px solid white; white-space: nowrap;">',
+                                    '   ❤️ ' + loc.name,
+                                    '</div>'
+                                ].join(''),
+                                size: new naver.maps.Size(100, 30),
+                                anchor: new naver.maps.Point(50, 15)
+                            };
+                        } else if (loc.type === 'parking') {
+                            markerOptions.icon = {
+                                content: [
+                                    '<div style="background-color: #555; color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; box-shadow: 0 2px 6px rgba(0,0,0,0.3); border: 1.5px solid white; white-space: nowrap;">',
+                                    '   🅿️ ' + loc.name,
+                                    '</div>'
+                                ].join(''),
+                                size: new naver.maps.Size(100, 30),
+                                anchor: new naver.maps.Point(50, -15)
+                            };
+                        }
+
+                        var marker = new naver.maps.Marker(markerOptions);
+                        
+                        if (loc.type === 'parking') {
+                            parkingMarkers.push(marker);
+                        }
+                    })(locations[i]);
+                }
+
+                // 💡 지도의 확대/축소(zoom) 상태가 바뀔 때마다 실행되는 이벤트
+                naver.maps.Event.addListener(map, 'zoom_changed', function() {
+                    var currentZoom = map.getZoom();
+                    
+                    // 줌 레벨이 15 이상일 때만 주차장을 보여줍니다. (원하는 숫자로 조절 가능)
+                    var showParking = currentZoom >= 16;
+
+                    for (var j = 0; j < parkingMarkers.length; j++) {
+                        parkingMarkers[j].setVisible(showParking);
                     }
                 });
-
-                // 처음에 정보창 바로 열어두기
-                infowindow.open(map, marker);
             }
         });
 
