@@ -1,6 +1,6 @@
 // D-Day 계산
 function calculateDday() {
-    const weddingDate = new Date('2025-11-30');
+    const weddingDate = new Date('2026-05-16');
     const today = new Date();
     const diff = weddingDate - today;
     const daysLeft = Math.ceil(diff / (1000 * 60 * 60 * 24));
