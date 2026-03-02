@@ -318,7 +318,7 @@
     </div>
 
     <!-- naver map API -->
-    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=5qz58jweso&submodules=geocoder"></script>
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=5qz58jweso"></script>
     
     <script src="script.js"></script>
     <script>
@@ -340,12 +340,12 @@
             // 갤러리 모달 초기화
             initializeGallery();
             
-            // 카카오맵 초기화
+            // 네이버지도 초기화 (에러 없는 좌표 직접 입력 방식)
             if (window.naver && naver.maps) {
                 var mapContainer = document.getElementById('map');
                 
                 // 오린하우스 위도, 경도 좌표 (직접 입력)
-                var coords = new naver.maps.LatLng(35.2635, 129.2345);
+                var coords = new naver.maps.LatLng(35.259208, 129.243568);
 
                 // 지도 생성 옵션
                 var mapOptions = {
