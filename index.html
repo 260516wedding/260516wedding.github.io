@@ -344,71 +344,55 @@
             if (window.naver && naver.maps) {
                 var mapContainer = document.getElementById('map');
                 
-                // 오린하우스 주소
-                var address = '부산 기장군 일광읍 학리2길 6';
+                // 오린하우스 위도, 경도 좌표 (직접 입력)
+                var coords = new naver.maps.LatLng(35.2635, 129.2345);
 
-                // 주소로 좌표 검색 (지오코딩)
-                naver.maps.Service.geocode({
-                    query: address
-                }, function(status, response) {
-                    if (status !== naver.maps.Service.Status.OK) {
-                        console.log('주소 검색 실패. 좌표를 직접 입력하는 방식을 권장합니다.');
-                        return;
+                // 지도 생성 옵션
+                var mapOptions = {
+                    center: coords,
+                    zoom: 16,
+                    zoomControl: true,
+                    zoomControlOptions: {
+                        position: naver.maps.Position.TOP_RIGHT
                     }
+                };
 
-                    var result = response.v2,
-                        items = result.addresses;
+                // 지도 생성
+                var map = new naver.maps.Map(mapContainer, mapOptions);
 
-                    // 검색된 좌표
-                    var coords = new naver.maps.LatLng(items[0].y, items[0].x);
-
-                    // 지도 생성 옵션
-                    var mapOptions = {
-                        center: coords,
-                        zoom: 16, // 네이버지도 확대 레벨 (보통 15~17이 적당)
-                        zoomControl: true,
-                        zoomControlOptions: {
-                            position: naver.maps.Position.TOP_RIGHT
-                        }
-                    };
-
-                    // 지도 생성
-                    var map = new naver.maps.Map(mapContainer, mapOptions);
-
-                    // 마커 생성
-                    var marker = new naver.maps.Marker({
-                        position: coords,
-                        map: map
-                    });
-
-                    // 인포윈도우(정보창) 내용 디자인
-                    var iwContent = [
-                        '<div style="padding:12px; min-width:180px; text-align:center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius:8px; background:white;">',
-                        '   <strong style="font-size:15px; display:block; margin-bottom:4px;">오린하우스</strong>',
-                        '   <span style="font-size:12px; color:#666;">부산 기장군 일광읍 학리2길 6</span>',
-                        '</div>'
-                    ].join('');
-
-                    var infowindow = new naver.maps.InfoWindow({
-                        content: iwContent,
-                        borderWidth: 0,
-                        backgroundColor: "transparent",
-                        anchorSkew: true,
-                        pixelOffset: new naver.maps.Point(0, -10) // 마커 위로 살짝 띄우기
-                    });
-
-                    // 마커 클릭 시 정보창 열고 닫기
-                    naver.maps.Event.addListener(marker, "click", function(e) {
-                        if (infowindow.getMap()) {
-                            infowindow.close();
-                        } else {
-                            infowindow.open(map, marker);
-                        }
-                    });
-
-                    // 처음에 정보창 바로 열어두기
-                    infowindow.open(map, marker);
+                // 마커 생성
+                var marker = new naver.maps.Marker({
+                    position: coords,
+                    map: map
                 });
+
+                // 인포윈도우(정보창) 내용 디자인
+                var iwContent = [
+                    '<div style="padding:12px; min-width:180px; text-align:center; box-shadow: 0 2px 6px rgba(0,0,0,0.1); border-radius:8px; background:white;">',
+                    '   <strong style="font-size:15px; display:block; margin-bottom:4px;">오린하우스</strong>',
+                    '   <span style="font-size:12px; color:#666;">부산 기장군 일광읍 학리2길 6</span>',
+                    '</div>'
+                ].join('');
+
+                var infowindow = new naver.maps.InfoWindow({
+                    content: iwContent,
+                    borderWidth: 0,
+                    backgroundColor: "transparent",
+                    anchorSkew: true,
+                    pixelOffset: new naver.maps.Point(0, -10) // 마커 위로 띄우기
+                });
+
+                // 마커 클릭 시 정보창 열고 닫기
+                naver.maps.Event.addListener(marker, "click", function(e) {
+                    if (infowindow.getMap()) {
+                        infowindow.close();
+                    } else {
+                        infowindow.open(map, marker);
+                    }
+                });
+
+                // 처음에 정보창 바로 열어두기
+                infowindow.open(map, marker);
             }
         });
 
