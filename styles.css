@@ -1092,11 +1092,11 @@ section {
     }
 
     .lockscreen-datetime {
-        top: 30%;
+        top: 10%;
     }
 
     .notification {
-        top: 50%;
+        top: 77%;
     }
 }
 
