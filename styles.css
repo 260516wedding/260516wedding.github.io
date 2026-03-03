@@ -697,39 +697,41 @@ section {
     object-fit: cover;
 }
 
-/* 오시는 길 컨테이너를 Grid로 변경 */
+/* 오시는 길 컨테이너를 2x2 격자로 설정 */
 .transport {
     margin: 30px 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 1:1 비율로 2칸씩 배치 */
-    gap: 12px; /* 박스 사이의 간격 */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px; /* 모바일에 맞춰 박스 사이 간격을 조금 더 줄임 */
 }
 
-/* 개별 항목 스타일 수정 */
+/* 개별 항목 스타일 */
 .transport-item {
-    margin: 0; /* 기존 위아래 마진(25px 0) 제거 */
-    padding: 16px; /* 박스가 작아지므로 패딩을 20px에서 약간 줄임 */
+    margin: 0;
+    padding: 14px 10px; /* 모바일에서 좁지 않도록 좌우 패딩을 줄임 */
     background: white;
     border-radius: 8px;
     border: 1px solid #e8e8e8;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
-/* 좁아진 공간에 맞춰 제목 크기 조정 */
+/* 제목(장소명) 스타일 */
 .transport-item h4 {
-    font-size: 15px;
-    margin-bottom: 8px;
+    font-size: 14px; /* 모바일 맞춤 크기 */
+    margin-bottom: 6px;
     color: #2d2d2d;
     font-weight: 500;
+    word-break: keep-all; /* 단어 단위로 줄바꿈되도록 설정 */
 }
 
-/* 좁아진 공간에 맞춰 본문 텍스트 크기 및 행간 조정 */
+/* 본문(주소/설명) 스타일 */
 .transport-item p {
-    font-size: 13px;
+    font-size: 12px; /* 모바일 맞춤 크기 */
     color: #4a4a4a;
-    line-height: 1.6;
-    word-break: keep-all;
+    line-height: 1.5;
+    word-break: keep-all; /* 주소나 글자가 어색하게 잘리지 않게 설정 */
     hyphens: none;
 }
 
