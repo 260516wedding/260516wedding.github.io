@@ -105,10 +105,10 @@
         </p>
         <div class="parents">
             <div class="parent-info">
-                <p><strong>안치홍 · 박현옥</strong>의 아들 <strong>욱진</strong></p>
+                <p><strong>안치홍 · 박현옥</strong>의 아들 <strong>안욱진</strong></p>
             </div>
             <div class="parent-info">
-                <p><strong>김영태 · 채미숙</strong>의 딸 <strong>민경</strong></p>
+                <p><strong>김영태 · 채미숙</strong>의 딸 <strong>김민경</strong></p>
             </div>
         </div>
     </section>
@@ -171,17 +171,23 @@
     <!-- 오시는 길 -->
     <section class="location">
         <h2 class="section-title">오시는 길</h2>
-        <div class="venue-info">
+        <!-- <div class="venue-info">
             <h3>부산 기장 오린하우스</h3>
             <p>부산 기장군 일광읍 학리2길 6<br>
                 0507-1327-6933</p>
-        </div>
+        </div> -->
         
         <div class="map-container">
             <div id="map" style="width:100%;height:350px;"></div>
         </div>
 
         <div class="transport">
+            <div class="transport-item">
+                <h4>❤️ 오린하우스</h4>
+                <p>부산 기장군 일광읍 학리2길 6<br>
+                0507-1327-6933<br>
+                <!-- <strong>1번 출구 앞 예식장 무료 셔틀버스 운행</strong></p> -->
+            </div>
             <div class="transport-item">
                 <h4>🅿️ 제1주차장</h4>
                 <p>부산 기장군 일광읍 학리 287-2<br>
@@ -379,11 +385,43 @@
                         lat: 35.258798,
                         lng: 129.244669,
                         type: 'parking'
+                    },
+                    {
+                        name: '일광역',
+                        lat: 35.267208,
+                        lng: 129.233022,
+                        type: 'subway'
+                    },
+                    {
+                        name: '부산역',
+                        lat: 35.114570,
+                        lng: 129.039322,
+                        type: 'train'
+                    },
+                    {
+                        name: '동대구역',
+                        lat: 35.114570,
+                        lng: 129.039322,
+                        type: 'train'
+                    },
+                    {
+                        name: '서울역',
+                        lat: 35.114570,
+                        lng: 129.039322,
+                        type: 'train'
+                    },
+                    {
+                        name: '수서역',
+                        lat: 35.114570,
+                        lng: 129.039322,
+                        type: 'train'
                     }
                 ];
 
                 // 📌 주차장 마커들을 따로 담아둘 배열
                 var parkingMarkers = [];
+                var subwayMarkers = [];
+                var trainMarkers = [];
 
                 for (var i = 0; i < locations.length; i++) {
                     (function(loc) {
@@ -413,12 +451,38 @@
                                 size: new naver.maps.Size(100, 30),
                                 anchor: new naver.maps.Point(50, -15)
                             };
+                        } else if (loc.type === 'subway') {
+                            markerOptions.icon = {
+                                content: [
+                                    '<div style="background-color: #555; color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; box-shadow: 0 2px 6px rgba(0,0,0,0.3); border: 1.5px solid white; white-space: nowrap;">',
+                                    '   🚇 ' + loc.name,
+                                    '</div>'
+                                ].join(''),
+                                size: new naver.maps.Size(100, 30),
+                                anchor: new naver.maps.Point(50, 0)
+                            };
+                        } else if (loc.type === 'train') {
+                            markerOptions.icon = {
+                                content: [
+                                    '<div style="background-color: #555; color: white; padding: 6px 12px; border-radius: 20px; font-size: 13px; font-weight: 500; box-shadow: 0 2px 6px rgba(0,0,0,0.3); border: 1.5px solid white; white-space: nowrap;">',
+                                    '   🚇 ' + loc.name,
+                                    '</div>'
+                                ].join(''),
+                                size: new naver.maps.Size(100, 30),
+                                anchor: new naver.maps.Point(50, 0)
+                            };
                         }
 
                         var marker = new naver.maps.Marker(markerOptions);
                         
                         if (loc.type === 'parking') {
                             parkingMarkers.push(marker);
+                        }
+                        if (loc.type === 'subway') {
+                            subwayMarkers.push(marker);
+                        }
+                        if (loc.type === 'train') {
+                            trainMarkers.push(marker);
                         }
                     })(locations[i]);
                 }
@@ -429,9 +493,14 @@
                     
                     // 줌 레벨이 15 이상일 때만 주차장을 보여줍니다. (원하는 숫자로 조절 가능)
                     var showParking = currentZoom >= 16;
+                    var showSubway = currentZoom >= 13;
 
                     for (var j = 0; j < parkingMarkers.length; j++) {
                         parkingMarkers[j].setVisible(showParking);
+                    }
+
+                    for (var j = 0; j < subwayMarkers.length; j++) {
+                        subwayMarkers[j].setVisible(showSubway);
                     }
                 });
             }

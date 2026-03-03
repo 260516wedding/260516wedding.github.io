@@ -222,6 +222,7 @@ function shareKakao() {
     }
     
     try {
+        const weddingUrl = 'https://260516wedding.github.io';
         Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
@@ -229,16 +230,16 @@ function shareKakao() {
                 description: 'Saturday, May 16, 2026',
                 imageUrl: window.location.origin + '/img/cover.jpeg',
                 link: {
-                    mobileWebUrl: window.location.href,
-                    webUrl: window.location.href,
+                    mobileWebUrl: weddingUrl,
+                    webUrl: weddingUrl,
                 },
             },
             buttons: [
                 {
                     title: '청첩장 보기',
                     link: {
-                        mobileWebUrl: window.location.href,
-                        webUrl: window.location.href,
+                        mobileWebUrl: weddingUrl,
+                        webUrl: weddingUrl,
                     },
                 },
             ],
