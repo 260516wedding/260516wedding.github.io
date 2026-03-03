@@ -226,7 +226,7 @@ function shareKakao() {
         Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
-                title: 'Wookjin Ahn & Minkyeong Kim',
+                title: 'Wookjin & Minkyeong\'s Wedding',
                 description: 'Saturday, May 16, 2026',
                 imageUrl: window.location.origin + '/img/cover.jpeg',
                 link: {
