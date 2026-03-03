@@ -226,8 +226,8 @@ function shareKakao() {
         Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
-                title: 'Wookjin & Minkyeong\'s Wedding',
-                description: 'Saturday, May 16, 2026',
+                title: '민경 욱진. 결혼합니다.',
+                description: '2026. 5. 16 토요일, 부산 오린하우스',
                 imageUrl: window.location.origin + '/img/cover.jpeg',
                 link: {
                     mobileWebUrl: weddingUrl,
@@ -236,7 +236,7 @@ function shareKakao() {
             },
             buttons: [
                 {
-                    title: '청첩장 보기',
+                    title: '모바일 청첩장 보기',
                     link: {
                         mobileWebUrl: weddingUrl,
                         webUrl: weddingUrl,
