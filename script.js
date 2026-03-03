@@ -222,7 +222,7 @@ function shareKakao() {
     }
     
     try {
-        const weddingUrl = 'https://260516wedding.github.io';
+        const weddingUrl = 'https://260516wedding.github.io/#!';
         Kakao.Share.sendDefault({
             objectType: 'feed',
             content: {
