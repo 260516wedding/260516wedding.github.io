@@ -359,3 +359,169 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+// RSVP 모달 제어
+function openRSVPModal() {
+    document.getElementById('rsvpModal').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+}
+
+function closeRSVPModal() {
+    document.getElementById('rsvpModal').style.display = 'none';
+    document.body.style.overflow = 'auto';
+    
+    // 창을 닫을 때 폼 초기화 (다음에 열 때 깨끗한 상태로)
+    document.getElementById('rsvpForm').reset();
+    document.getElementById('group-count').style.display = 'block';
+    document.getElementById('group-meal').style.display = 'block';
+    document.getElementById('rsvpCountCustom').style.display = 'none';
+}
+
+// 참석 여부에 따라 '인원'과 '식사' 영역 숨기기/보이기
+const attendRadios = document.querySelectorAll('input[name="attendance"]');
+const groupCount = document.getElementById('group-count');
+const groupMeal = document.getElementById('group-meal');
+
+attendRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+        if (this.value === '미참석') {
+            // 미참석 선택 시 숨김
+            groupCount.style.display = 'none';
+            groupMeal.style.display = 'none';
+        } else {
+            // 참석 선택 시 다시 보임
+            groupCount.style.display = 'block';
+            groupMeal.style.display = 'block';
+        }
+    });
+});
+
+// RSVP 데이터 전송 (구현 안내)
+function submitRSVP() {
+    const name = document.getElementById('rsvpName').value.trim();
+    if (!name) {
+        alert('성함을 입력해주세요.');
+        return;
+    }
+
+    const side = document.querySelector('input[name="side"]:checked').value;
+
+    let relation = document.getElementById('rsvpRelation').value;
+    if (relation === 'custom') {
+        relation = document.getElementById('rsvpRelationCustom').value.trim();
+        if (!relation) {
+            alert('관계를 직접 입력해주세요.');
+            return;
+        }
+    }
+
+    const attendance = document.querySelector('input[name="attendance"]:checked').value;
+    
+    // 💡 인원수 가져오는 로직 변경
+    let count = document.getElementById('rsvpCount').value;
+    
+    if (count === 'custom') {
+        // '5명 이상'을 선택했을 때
+        count = document.getElementById('rsvpCountCustom').value;
+        if (!count || count < 5) {
+            alert('5명 이상일 경우 정확한 인원수를 입력해주세요.');
+            return; // 전송 중단
+        }
+    }
+
+    let meal = document.querySelector('input[name="meal"]:checked').value;
+
+    // 💡 미참석일 경우 구글 시트에 깔끔하게 기록되도록 데이터 변경
+    if (attendance === '미참석') {
+        count = '-';
+        meal = '-';
+    }
+
+    // 🔴 여기에 2단계에서 메모장에 복사해둔 폼 Action URL을 넣으세요
+    const formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSdmF7rRxCv2vclp17MblUidqdhkDvU28bR1llApT4B4vUYY0Q/formResponse";
+
+    // 🔴 여기에 2단계에서 찾은 각각의 entry.숫자 아이디를 매칭해서 넣으세요
+    const formData = new FormData();
+    formData.append("entry.305130163", name);       // 성함
+    formData.append("entry.1104299496", side);       // 구분 (예: entry.1234567)
+    formData.append("entry.1790077885", relation);   // 관계
+    formData.append("entry.1735471700", attendance); // 참석여부
+    formData.append("entry.1599202938", count);      // 참석인원
+    formData.append("entry.2136868678", meal);       // 식사여부
+
+    const submitBtn = document.querySelector('.btn-rsvp-submit');
+    submitBtn.innerText = "전달 중...";
+    submitBtn.disabled = true;
+
+    fetch(formUrl, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    })
+    .then(() => {
+        alert(`${name}님, 참석 의사가 성공적으로 전달되었습니다. 감사합니다!`);
+        closeRSVPModal();
+        
+        // 폼 초기화 후, 숨겨졌던 영역 다시 보이게 복구
+        document.getElementById('rsvpForm').reset();
+        groupCount.style.display = 'block';
+        groupMeal.style.display = 'block';
+        // 🌟 수정: 전송 완료 후 5명 이상 직접 입력칸도 닫아주기
+        document.getElementById('rsvpCountCustom').style.display = 'none';
+        document.getElementById('rsvpRelationCustom').style.display = 'none';
+        
+        submitBtn.innerText = "전달하기";
+        submitBtn.disabled = false;
+    })
+    .catch((error) => {
+        console.error("Error!", error);
+        alert("전달에 실패했습니다. 잠시 후 다시 시도해주세요.");
+        submitBtn.innerText = "전달하기";
+        submitBtn.disabled = false;
+    });
+}
+
+// 모달 외부 클릭 시 닫기
+window.onclick = function(event) {
+    const modal = document.getElementById('rsvpModal');
+    if (event.target == modal) {
+        closeRSVPModal();
+    }
+}
+
+function toggleCustomCount() {
+    const select = document.getElementById('rsvpCount');
+    const customInput = document.getElementById('rsvpCountCustom');
+    
+    if (select.value === 'custom') {
+        customInput.style.display = 'block'; // 입력창 보이기
+        customInput.focus(); // 커서 깜빡이게 하기
+    } else {
+        customInput.style.display = 'none';  // 입력창 숨기기
+        customInput.value = ''; // 혹시 적어둔 숫자가 있다면 초기화
+    }
+}
+
+// 관계 직접 입력창 표시/숨김
+function toggleCustomRelation() {
+    const select = document.getElementById('rsvpRelation');
+    const customInput = document.getElementById('rsvpRelationCustom');
+    
+    if (select.value === 'custom') {
+        customInput.style.display = 'block'; // 보이기
+        customInput.focus();
+    } else {
+        customInput.style.display = 'none';  // 숨기기
+        customInput.value = ''; // 적어둔 글자 초기화
+    }
+}
+
+// 스냅 갤러리 링크 이동
+function openSnapLink() {
+    // 🔴 아래 쌍따옴표 안에 구글 포토 공유 앨범 링크나 카카오톡 오픈채팅방 링크를 넣으세요!
+    const snapUrl = "https://photos.app.goo.gl/ibnbYCmxmGjjnswz9"; 
+    
+    // 새 창으로 링크 열기
+    window.open(snapUrl, "_blank");
+}
+

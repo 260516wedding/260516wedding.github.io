@@ -1126,3 +1126,213 @@ section {
     }
 }
 
+/* RSVP 섹션 */
+.rsvp-section {
+    text-align: center;
+    background: #fff;
+}
+.rsvp-intro {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+}
+.btn-rsvp-open {
+    padding: 15px 40px;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* RSVP 모달 */
+.rsvp-modal {
+    display: none;
+    position: fixed;
+    z-index: 11000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px);
+}
+.rsvp-modal-content {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    margin: 10% auto;
+    padding: 30px 20px;
+    border-radius: 20px;
+    position: relative;
+    animation: fadeInUp 0.4s ease;
+}
+.rsvp-modal-content h3 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-weight: 500;
+    color: #333;
+}
+.close-rsvp {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+/* 폼 스타일 */
+.form-group {
+    margin-bottom: 20px;
+}
+.form-group label {
+    display: block;
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.form-group input[type="text"], .form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* 라디오 버튼 그룹 (theirmood 스타일) */
+.radio-group {
+    display: flex;
+    gap: 10px;
+}
+.radio-group input[type="radio"] {
+    display: none;
+}
+.radio-group label {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+    background: #fff;
+}
+.radio-group input[type="radio"]:checked + label {
+    background: #555;
+    color: #fff;
+    border-color: #555;
+}
+
+.btn-rsvp-submit {
+    width: 100%;
+    padding: 15px;
+    background: #555;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+/* 5명 이상 직접 입력칸 디자인 */
+.custom-number-input {
+    display: none; /* 초기에는 숨김 */
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    text-align: center; /* 숫자를 가운데 정렬해서 더 깔끔하게 */
+    box-sizing: border-box;
+    background-color: #fafafa; /* 살짝 다른 배경색으로 구분감 주기 */
+    color: #333;
+    transition: all 0.3s ease; /* 부드러운 전환 효과 */
+}
+
+/* 터치(포커스)했을 때의 예쁜 효과 */
+.custom-number-input:focus {
+    outline: none;
+    border-color: #555; /* 테두리가 진해짐 */
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05); /* 은은한 그림자 */
+}
+
+/* 💡 못생긴 기본 숫자 스피너(위아래 화살표) 숨기기 */
+.custom-number-input::-webkit-outer-spin-button,
+.custom-number-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.custom-number-input[type=number] {
+    -moz-appearance: textfield; /* 파이어폭스용 스피너 숨김 */
+}
+
+/* 관계 직접 입력 텍스트칸 디자인 */
+.custom-text-input {
+    display: none; /* 초기에는 숨김 */
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 15px;
+    box-sizing: border-box;
+    background-color: #fafafa;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+.custom-text-input:focus {
+    outline: none;
+    border-color: #555;
+    background-color: #fff;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+/* 스냅(사진 공유) 섹션 */
+.snap-section {
+    text-align: center;
+    background: #ffffff;
+}
+
+.snap-intro {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+
+.btn-snap {
+    padding: 14px 35px;
+    background: #ffffff;
+    color: #555555;
+    border: 1px solid #555555;
+    border-radius: 30px;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.03);
+}
+
+.btn-snap:hover {
+    background: #555555;
+    color: #ffffff;
+}
+
+.camera-icon {
+    font-size: 18px;
+}
+
