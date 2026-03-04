@@ -519,7 +519,7 @@ function toggleCustomRelation() {
 // 스냅 갤러리 링크 이동
 function openSnapLink() {
     // 🔴 아래 쌍따옴표 안에 구글 포토 공유 앨범 링크나 카카오톡 오픈채팅방 링크를 넣으세요!
-    const snapUrl = "https://photos.app.goo.gl/ibnbYCmxmGjjnswz9"; 
+    const snapUrl = "https://www.dropbox.com/request/QkNNaaGUWZjgV8u7wrlE"; 
     
     // 새 창으로 링크 열기
     window.open(snapUrl, "_blank");
