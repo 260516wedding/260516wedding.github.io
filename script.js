@@ -32,22 +32,42 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // 계좌번호 토글
-function toggleAccount(element) {
-    const details = element.nextElementSibling;
-    const isOpen = details.classList.contains('show');
-    
-    // 모든 계좌 상세 정보 닫기
-    document.querySelectorAll('.account-details').forEach(detail => {
-        detail.classList.remove('show');
-    });
-    document.querySelectorAll('.account-item').forEach(item => {
-        item.classList.remove('active');
-    });
-    
-    // 클릭한 항목만 토글
-    if (!isOpen) {
-        details.classList.add('show');
-        element.classList.add('active');
+function toggleSide(side) {
+    const groomContent = document.getElementById('content-groom');
+    const brideContent = document.getElementById('content-bride');
+    const groomArrow = document.getElementById('arrow-groom');
+    const brideArrow = document.getElementById('arrow-bride');
+
+    if (side === 'groom') {
+        const isOpen = groomContent.classList.contains('open');
+        
+        // 신부측 닫기
+        brideContent.classList.remove('open');
+        brideArrow.classList.remove('open');
+        
+        // 신랑측 토글
+        if (isOpen) {
+            groomContent.classList.remove('open');
+            groomArrow.classList.remove('open');
+        } else {
+            groomContent.classList.add('open');
+            groomArrow.classList.add('open');
+        }
+    } else if (side === 'bride') {
+        const isOpen = brideContent.classList.contains('open');
+        
+        // 신랑측 닫기
+        groomContent.classList.remove('open');
+        groomArrow.classList.remove('open');
+        
+        // 신부측 토글
+        if (isOpen) {
+            brideContent.classList.remove('open');
+            brideArrow.classList.remove('open');
+        } else {
+            brideContent.classList.add('open');
+            brideArrow.classList.add('open');
+        }
     }
 }
 

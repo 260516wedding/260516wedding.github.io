@@ -215,7 +215,7 @@
     </section>
 
     <!-- 마음 전하기 -->
-    <section class="account">
+<section class="account">
         <h2 class="section-title">마음 전하기</h2>
         <p class="account-intro">
             참석이 어려우신 분들을 위해<br>
@@ -223,68 +223,77 @@
             너그러운 마음으로 양해 부탁드립니다.
         </p>
         
-        <!-- <p class="flower-notice">
-            화환은 정중히 사양합니다.<br>
-            좋은 마음만 감사히 받겠습니다.
-        </p> -->
-        
-        <div class="account-box">
-            <h3>신랑측</h3>
-            <div class="account-item" onclick="toggleAccount(this)">
-                <p class="name">신랑 안욱진</p>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="account-details">
-                <p>신한은행 110-378-071816</p>
-                <button onclick="copyAccount('110-378-071816')">계좌 복사</button>
-            </div>
-            
-            <div class="account-item" onclick="toggleAccount(this)">
-                <p class="name">아버지 안치홍</p>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="account-details">
-                <p>하나은행 484-910323-61007</p>
-                <button onclick="copyAccount('484-910323-61007')">계좌 복사</button>
-            </div>
-            
-            <div class="account-item" onclick="toggleAccount(this)">
-                <p class="name">어머니 박현옥</p>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="account-details">
-                <p>NH농협 170888-56-138430</p>
-                <button onclick="copyAccount('170888-56-138430')">계좌 복사</button>
-            </div>
-        </div>
-
-        <div class="account-box">
-            <h3>신부측</h3>
-            <div class="account-item" onclick="toggleAccount(this)">
-                <p class="name">신부 김민경</p>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="account-details">
-                <p>신한은행 110-469-251008</p>
-                <button onclick="copyAccount('110-469-251008')">계좌 복사</button>
+        <div class="account-container">
+            <div class="account-side">
+                <div class="side-header" onclick="toggleSide('groom')">
+                    <span>신랑측</span>
+                    <svg id="arrow-groom" class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="side-content" id="content-groom">
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">신랑</span> <span class="name">안욱진</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">신한은행 110-378-071816</span>
+                            <button class="btn-copy" onclick="copyAccount('110-378-071816')">복사</button>
+                        </div>
+                    </div>
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">아버지</span> <span class="name">안치홍</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">하나은행 484-910323-61007</span>
+                            <button class="btn-copy" onclick="copyAccount('484-910323-61007')">복사</button>
+                        </div>
+                    </div>
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">어머니</span> <span class="name">박현옥</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">NH농협 170888-56-138430</span>
+                            <button class="btn-copy" onclick="copyAccount('170888-56-138430')">복사</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="account-item" onclick="toggleAccount(this)">
-                <p class="name">아버지 김영태</p>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="account-details">
-                <p>우리은행 485-002201-12-001</p>
-                <button onclick="copyAccount('485-002201-12-001')">계좌 복사</button>
-            </div>
-
-            <div class="account-item" onclick="toggleAccount(this)">
-                <p class="name">어머니 채미숙</p>
-                <span class="arrow">▼</span>
-            </div>
-            <div class="account-details">
-                <p>우리은행 775-016916-02-201</p>
-                <button onclick="copyAccount('775-016916-02-201')">계좌 복사</button>
+            <div class="account-side">
+                <div class="side-header" onclick="toggleSide('bride')">
+                    <span>신부측</span>
+                    <svg id="arrow-bride" class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="side-content" id="content-bride">
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">신부</span> <span class="name">김민경</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">신한은행 110-469-251008</span>
+                            <button class="btn-copy" onclick="copyAccount('110-469-251008')">복사</button>
+                        </div>
+                    </div>
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">아버지</span> <span class="name">김영태</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">우리은행 485-002201-12-001</span>
+                            <button class="btn-copy" onclick="copyAccount('485-002201-12-001')">복사</button>
+                        </div>
+                    </div>
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">어머니</span> <span class="name">채미숙</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">우리은행 775-016916-02-201</span>
+                            <button class="btn-copy" onclick="copyAccount('775-016916-02-201')">복사</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -361,7 +370,7 @@
         </div>
     </div>
 
-    <section class="snap-section">
+    <!-- <section class="snap-section">
         <h2 class="section-title">게스트 스냅</h2>
         <p class="snap-intro">
             저희의 가장 아름다운 순간을<br>
@@ -371,7 +380,7 @@
         <button class="btn-snap" onclick="openSnapLink()">
              사진 업로드
         </button>
-    </section>
+    </section> -->
 
     <!-- 하단 공유 버튼 -->
     <section class="share">

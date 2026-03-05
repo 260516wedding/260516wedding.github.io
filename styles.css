@@ -744,20 +744,20 @@ section {
 
 .map-buttons button {
     flex: 1;
-    padding: 12px 18px;
-    background: white;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    padding: 16px 0; /* 버튼 높이를 시원하게 키움 */
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px; /* 트렌디한 라운드 */
     font-size: 14px;
-    cursor: pointer;
-    transition: all 0.3s;
-    color: #2d2d2d;
     font-weight: 500;
+    color: #333333;
+    cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .map-buttons button:hover {
-    background: #f0f0f0;
-    border-color: #cccccc;
+    background: #f9f9f9;
+    border-color: #d0d0d0;
 }
 
 /* 마음 전하기 섹션 */
@@ -771,102 +771,6 @@ section {
     font-size: 15px;
     line-height: 1.8;
     margin-bottom: 40px;
-}
-
-.account-box {
-    margin: 40px auto;
-    padding: 20px;
-    background: #f9f9f9;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    max-width: 440px;
-}
-
-.account-box h3 {
-    font-size: 17px;
-    margin-bottom: 25px;
-    color: #2d2d2d;
-    text-align: center;
-    font-weight: 500;
-}
-
-.account-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px;
-    background: white;
-    border-radius: 8px;
-    margin: 10px 0;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: 1px solid #e8e8e8;
-}
-
-.account-item:hover {
-    background: #f8f8f8;
-}
-
-.account-item .name {
-    font-size: 16px;
-    color: #2d2d2d;
-    font-weight: 400;
-}
-
-.account-item .arrow {
-    color: #888888;
-    transition: transform 0.3s;
-    font-size: 14px;
-}
-
-.account-item.active .arrow {
-    transform: rotate(180deg);
-}
-
-.account-details {
-    display: none;
-    padding: 15px;
-    background: #f8f8f8;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    border-radius: 0 0 8px 8px;
-    text-align: center;
-}
-
-.account-details.show {
-    display: block;
-}
-
-.account-details p {
-    font-size: 14px;
-    color: #4a4a4a;
-    margin-bottom: 12px;
-    line-height: 1.6;
-}
-
-.account-details button {
-    padding: 10px 20px;
-    background: #555555;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: all 0.3s;
-    margin: 5px;
-    font-weight: 500;
-}
-
-.account-details button:hover {
-    background: #333333;
-    transform: translateY(-1px);
-}
-
-.account-details .phone {
-    color: #666666;
-    font-size: 13px;
-    display: block;
-    margin-top: 5px;
 }
 
 .flower-notice {
@@ -970,13 +874,13 @@ section {
 
 .share-buttons button {
     flex: 1;
-    max-width: 160px;
-    padding: 14px 24px;
+    max-width: none; /* 기존 제한 해제 */
+    padding: 16px 0; /* 다른 버튼과 동일한 높이 */
     border: none;
-    border-radius: 8px;
+    border-radius: 10px; /* 통일된 라운드 */
     font-size: 15px;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s ease;
     font-weight: 500;
 }
 
@@ -986,20 +890,19 @@ section {
 }
 
 .share-buttons .kakao:hover {
-    background: #fdd835;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(254, 229, 0, 0.3);
+    background: #f4dc00;
+    /* 기존의 과한 그림자/움직임 제거하여 깔끔하게 유지 */
 }
 
+/* 링크 복사 버튼은 튀지 않게 모던한 라이트 그레이로 변경 */
 .share-buttons .link {
-    background: #2d2d2d;
-    color: white;
+    background: #f5f5f5; 
+    color: #333333;
+    border: 1px solid #eaeaea;
 }
 
 .share-buttons .link:hover {
-    background: #1a1a1a;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: #ebebeb;
 }
 
 /* 푸터 */
@@ -1092,6 +995,118 @@ section {
     }
 }
 
+/* 마음 전하기 (계좌번호) 그룹 스타일 */
+.account-container {
+    max-width: 440px;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 신랑측과 신부측 사이 간격 */
+}
+
+.account-side {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #eaeaea;
+}
+
+.side-header {
+    padding: 16px 20px; /* 위아래 여백을 다른 메인 버튼들과 동일하게 16px로 맞춤 */
+    background: #f5f5f5; /* 링크 복사 버튼 등과 동일한 모던한 라이트 그레이로 톤 매너 통일 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    font-size: 15px; /* 글자 크기도 다른 버튼들과 동일하게 15px로 통일 */
+    font-weight: 500;
+    color: #333333;
+    transition: background 0.2s ease;
+}
+
+.side-header:hover {
+    background: #ebebeb; /* 마우스 올렸을 때의 색상도 다른 버튼과 동일하게 통일 */
+}
+
+/* 화살표 위치 우측 끝으로 고정 */
+.arrow-icon {
+    position: absolute;
+    right: 20px;
+    transition: transform 0.3s ease;
+    color: #777;
+}
+
+.arrow-icon.open {
+    transform: rotate(180deg);
+}
+
+.side-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    background: #ffffff;
+}
+
+.side-content.open {
+    max-height: 500px; /* 세 명의 정보가 열릴 수 있도록 충분한 높이 지정 */
+}
+
+.person-row {
+    padding: 20px;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.person-row:last-child {
+    border-bottom: none;
+}
+
+.person-header {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.person-header .title {
+    color: #888;
+    margin-right: 6px;
+    font-size: 14px;
+}
+
+.person-header .name {
+    color: #333;
+    font-weight: 500;
+}
+
+.account-number-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.account-number-row .bank {
+    font-size: 14px;
+    color: #555;
+    letter-spacing: 0.5px;
+}
+
+/* 둥글고 귀여운 복사 버튼 스타일 */
+.btn-copy {
+    padding: 6px 14px;
+    background: #f5f5f5;
+    color: #555555;
+    border: 1px solid #eaeaea;
+    border-radius: 6px; /* 작은 버튼에 맞는 비율의 라운드 */
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-copy:hover {
+    background: #ebebeb;
+    color: #333333;
+}
+
 /* 긴 화면 최적화 */
 @media (max-height: 640px) {
     .lockscreen-time {
@@ -1136,15 +1151,25 @@ section {
     color: #777;
     margin-bottom: 25px;
 }
+
 .btn-rsvp-open {
-    padding: 15px 40px;
-    background: #555;
-    color: white;
+    width: 100%;
+    max-width: 300px; /* 너무 길지 않게 안정감 있는 길이 */
+    padding: 16px 0;
+    background: #4a4a4a; /* 너무 까맣지 않은 고급스러운 다크그레이 */
+    color: #ffffff;
     border: none;
-    border-radius: 30px;
+    border-radius: 10px; /* 통일된 라운드 */
     font-size: 15px;
+    font-weight: 500;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.2s ease;
+    display: block;
+    margin: 0 auto; /* 가운데 정렬 */
+}
+
+.btn-rsvp-open:hover {
+    background: #333333;
 }
 
 /* RSVP 모달 */
@@ -1244,15 +1269,20 @@ section {
 
 .btn-rsvp-submit {
     width: 100%;
-    padding: 15px;
-    background: #555;
+    padding: 16px 0;
+    background: #4a4a4a;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 10px; /* 통일된 라운드 */
     font-size: 16px;
     font-weight: 500;
-    margin-top: 10px;
+    margin-top: 15px;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-rsvp-submit:hover {
+    background: #333333;
 }
 
 /* 5명 이상 직접 입력칸 디자인 */
