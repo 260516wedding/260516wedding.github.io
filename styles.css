@@ -1163,11 +1163,25 @@ section {
     background: white;
     width: 90%;
     max-width: 400px;
-    margin: 10% auto;
+    /* 모바일 화면에 맞게 여백을 살짝 줄입니다 (10% -> 5vh) */
+    margin: 5vh auto; 
     padding: 30px 20px;
     border-radius: 20px;
     position: relative;
     animation: fadeInUp 0.4s ease;
+    
+    /* 💡 핵심 추가 코드 💡 */
+    max-height: 85vh;  /* 팝업창의 최대 높이를 화면의 85%로 제한합니다 */
+    overflow-y: auto;  /* 내용이 85%를 넘어가면 하얀 박스 안에 세로 스크롤을 만듭니다 */
+}
+
+/* 💡 추가: 팝업창 안의 스크롤바를 얇고 예쁘게 만드는 디자인 (이 코드도 CSS 맨 아래나 방금 수정한 곳 바로 아래에 넣어주세요) */
+.rsvp-modal-content::-webkit-scrollbar {
+    width: 5px;
+}
+.rsvp-modal-content::-webkit-scrollbar-thumb {
+    background-color: #dddddd;
+    border-radius: 10px;
 }
 .rsvp-modal-content h3 {
     text-align: center;
