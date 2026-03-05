@@ -203,8 +203,10 @@ function saveGuestbook(name, message, date) {
 
 // 저장된 방명록 로드
 function loadSampleGuestbook() {
-    const guestbooks = JSON.parse(localStorage.getItem('weddingGuestbook') || '[]');
     const guestbookList = document.getElementById('guestbookList');
+    if (!guestbookList) return; // 🌟 이 줄을 반드시 추가해! (HTML이 없으면 함수를 멈춤)
+    
+    const guestbooks = JSON.parse(localStorage.getItem('weddingGuestbook') || '[]');
     
     guestbooks.forEach(item => {
         const div = document.createElement('div');
