@@ -399,7 +399,7 @@ function closeRSVPModal() {
     document.getElementById('rsvpCountCustom').style.display = 'none';
 }
 
-// 참석 여부에 따라 '인원'과 '식사' 영역 숨기기/보이기
+// 여석 여부에 따라 '인원'과 '식사' 영역 숨기기/보이기
 const attendRadios = document.querySelectorAll('input[name="attendance"]');
 const groupCount = document.getElementById('group-count');
 const groupMeal = document.getElementById('group-meal');
