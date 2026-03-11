@@ -997,7 +997,7 @@ section {
 
 /* 마음 전하기 (계좌번호) 그룹 스타일 */
 .account-container {
-    max-width: 440px;
+    max-width: 300px;
     margin: 30px auto;
     display: flex;
     flex-direction: column;
@@ -1012,14 +1012,16 @@ section {
 }
 
 .side-header {
-    padding: 16px 20px; /* 위아래 여백을 다른 메인 버튼들과 동일하게 16px로 맞춤 */
+    height: 50px; /* 💡 참석 의사 버튼과 똑같이 높이를 56px로 고정합니다 */
+    padding: 0 20px; /* 위아래 패딩은 빼고, 화살표를 위한 좌우 여백만 둡니다 */
     background: #f5f5f5; /* 링크 복사 버튼 등과 동일한 모던한 라이트 그레이로 톤 매너 통일 */
+    /* 💡 Flexbox를 사용해 글자를 완벽한 정중앙에 배치합니다 */
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     cursor: pointer;
-    font-size: 15px; /* 글자 크기도 다른 버튼들과 동일하게 15px로 통일 */
+    font-size: 15px;
     font-weight: 500;
     color: #333333;
     transition: background 0.2s ease;
@@ -1154,7 +1156,8 @@ section {
 
 .btn-rsvp-open {
     width: 100%;
-    max-width: 300px; /* 너무 길지 않게 안정감 있는 길이 */
+    max-width: 250px; /* 너무 길지 않게 안정감 있는 길이 */
+    height: 50px;
     padding: 16px 0;
     background: #4a4a4a; /* 너무 까맣지 않은 고급스러운 다크그레이 */
     color: #ffffff;
@@ -1164,8 +1167,12 @@ section {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-    display: block;
-    margin: 0 auto; /* 가운데 정렬 */
+    
+    /* 💡 Flexbox를 사용해 글자를 완벽한 정중앙에 배치합니다 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
 
 .btn-rsvp-open:hover {
