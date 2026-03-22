@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wookjin ❤️ Minkyeong</title>
+    <meta property="og:title" content="Wookjin Ahn & Minkyeong Kim">
+    <meta property="og:description" content="Saturday, May 16, 2026">
+    <meta property="og:image" content="img/cover.jpeg">
+    <link rel="preload" as="image" href="img/cover.jpeg" fetchpriority="high">
+    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;500&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://developers.kakao.com/sdk/js/kakao.js" defer></script>
+</head>
+<body>
+    <section class="cover">
+        <div class="cover-image">
+            <img src="img/cover.jpeg" alt="웨딩 메인 사진" fetchpriority="high" decoding="async">
+        </div>
+
+        <div class="status-bar">
+            <span class="time-status"></span>
+            <div class="status-icons">
+                <svg class="signal-icon" width="18" height="14" viewBox="0 0 18 14" fill="none">
+                    <rect x="0" y="10" width="2" height="4" fill="white" opacity="0.7"/>
+                    <rect x="4" y="7" width="2" height="7" fill="white" opacity="0.8"/>
+                    <rect x="8" y="4" width="2" height="10" fill="white" opacity="0.9"/>
+                    <rect x="12" y="1" width="2" height="13" fill="white"/>
+                    <rect x="16" y="0" width="2" height="14" fill="white"/>
+                </svg>
+                <svg class="battery-icon" width="24" height="14" viewBox="0 0 24 14" fill="none">
+                    <rect x="1" y="3" width="18" height="8" rx="2" fill="none" stroke="white" stroke-width="1"/>
+                    <rect x="2.5" y="4.5" width="13" height="5" rx="1" fill="white" opacity="0.85"/>
+                    <rect x="20" y="5.5" width="2" height="3" rx="1" fill="white" opacity="0.7"/>
+                </svg>
+            </div>
+        </div>
+
+        <div class="lock-icon">
+            <svg width="22" height="26" viewBox="0 0 22 26" fill="none">
+                <path d="M6 10V7C6 4.23858 8.23858 2 11 2C13.7614 2 16 4.23858 16 7V10" stroke="white" stroke-width="1" stroke-linecap="round"/>
+                <rect x="4" y="10" width="14" height="12" rx="2" fill="white" opacity="0.85"/>
+                <circle cx="11" cy="16" r="1.5" fill="black" opacity="0.6"/>
+            </svg>
+        </div>
+
+        <div class="lockscreen-datetime">
+            <div class="lockscreen-date">5월 16일 토요일</div>
+            <div class="lockscreen-time">12:00</div>
+        </div>
+
+        <div class="notification">
+            <div class="notification-icon">
+                <img src="img/icon_heart.png" alt="하트">
+            </div>
+            <div class="notification-content">
+                <div class="notification-title">욱진 & 민경 💗</div>
+                <div class="notification-text">저희 결혼해요 !!</div>
+            </div>
+            <div class="notification-time">방금 전</div>
+        </div>
+
+        <div class="swipe-up">
+            <div class="swipe-line"></div>
+            <p>위로 스와이프하여 입장</p>
+        </div>
+    </section>
+
+    <section class="greeting" id="main-content">
+        <div class="couple-intro">
+            <div class="couple-photos">
+                <div class="groom-photo">
+                    <img src="img/child_wj.jpg" alt="신랑 사진" loading="lazy" decoding="async">
+                    <span class="photo-label">신랑</span>
+                </div>
+                <div class="bride-photo">
+                    <img src="img/child_mk.jpg" alt="신부 사진" loading="lazy" decoding="async">
+                    <span class="photo-label">신부</span>
+                </div>
+            </div>
+            <h1 class="couple-names">안욱진 <span class="heart">♥</span> 김민경</h1>
+            <p class="wedding-info">
+                <span class="wedding-date-full">2026년 5월 16일 토요일 부산 오린하우스</span><br>
+                <span class="wedding-venue">1부 오후 12시</span><br>
+                <span class="wedding-venue">2부 오후 1시</span>
+            </p>
+        </div>
+
+        <h2 class="section-title">초대합니다</h2>
+        <p class="greeting-text">
+            함께하는 시간이 쌓여<br>
+            서로에게 가장 소중한 사람이 되었습니다.<br><br>
+
+            평생을 함께하며 채워나갈 저희의 첫걸음에 <br>
+            기쁜 마음으로 오셔서 자리를 빛내주세요.
+        </p>
+        <div class="parents">
+            <div class="parent-info">
+                <strong>안치홍 · 박현옥의</strong>
+                <span class="relation-type">아들</span>
+                <strong>안욱진</strong>
+            </div>
+            <div class="parent-info">
+                <strong>김영태 · 채미숙의</strong>
+                <span class="relation-type">딸</span>
+                <strong>김민경</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2 class="section-title">갤러리</h2>
+        <div class="gallery-grid">
+            <img src="img/thumb/gallery_01.jpeg" alt="우리의 순간 1" loading="lazy" decoding="async" onclick="openGalleryModal(0)">
+            <img src="img/thumb/gallery_02.jpg" alt="우리의 순간 2" loading="lazy" decoding="async" onclick="openGalleryModal(1)">
+            <img src="img/thumb/gallery_03.JPG" alt="우리의 순간 3" loading="lazy" decoding="async" onclick="openGalleryModal(2)">
+            <img src="img/thumb/gallery_04.JPG" alt="우리의 순간 4" loading="lazy" decoding="async" onclick="openGalleryModal(3)">
+            <img src="img/thumb/gallery_05.jpeg" alt="우리의 순간 5" loading="lazy" decoding="async" onclick="openGalleryModal(4)">
+            <img src="img/thumb/gallery_06.jpeg" alt="우리의 순간 6" loading="lazy" decoding="async" onclick="openGalleryModal(5)">
+            <img src="img/thumb/gallery_07.jpg" alt="우리의 순간 7" loading="lazy" decoding="async" onclick="openGalleryModal(6)">
+            <img src="img/thumb/gallery_08.JPG" alt="우리의 순간 8" loading="lazy" decoding="async" onclick="openGalleryModal(7)">
+            <img src="img/thumb/gallery_09.JPG" alt="우리의 순간 9" loading="lazy" decoding="async" onclick="openGalleryModal(8)">
+        </div>
+    </section>
+
+    <section class="calendar-section">
+        <div class="calendar-date-header">
+            <p class="calendar-date-display">2026.05.16</p>
+            <p class="calendar-day-display">토요일 낮 12시</p>
+        </div>
+        <hr class="calendar-divider">
+        <div class="calendar">
+            <div class="weekdays">
+                <span class="sunday">일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+            </div>
+            <div class="dates">
+                <span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span class="empty"></span><span>1</span><span>2</span>
+                <span class="sunday">3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span>
+                <span class="sunday">10</span><span>11</span><span>12</span><span>13</span><span>14</span><span>15</span><span class="wedding-day">16</span>
+                <span class="sunday">17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span>
+                <span class="sunday">24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
+                <span class="sunday">31</span>
+            </div>
+        </div>
+        <hr class="calendar-divider">
+        <div class="countdown">
+            <div class="countdown-units">
+                <div class="countdown-unit">
+                    <span class="countdown-label">DAYS</span>
+                    <span class="countdown-value" id="countdown-days">--</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-label">HOUR</span>
+                    <span class="countdown-value" id="countdown-hours">--</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-label">MIN</span>
+                    <span class="countdown-value" id="countdown-mins">--</span>
+                </div>
+                <span class="countdown-sep">:</span>
+                <div class="countdown-unit">
+                    <span class="countdown-label">SEC</span>
+                    <span class="countdown-value" id="countdown-secs">--</span>
+                </div>
+            </div>
+            <p class="countdown-text">욱진, 민경의 결혼식이 <span id="dday">--</span>일 남았습니다.</p>
+        </div>
+    </section>
+
+    <section class="location">
+        <h2 class="section-title">오시는 길</h2>
+
+        <div class="map-container">
+            <div id="map" style="width:100%;height:350px;"></div>
+        </div>
+
+        <div class="transport">
+            <div class="transport-item">
+                <h4>❤️ 오린하우스</h4>
+                <p>부산 기장군 일광읍 학리2길 6<br>
+                TEL 0507-1327-6933</p>
+            </div>
+            <div class="transport-item">
+                <h4>🅿️ 제1주차장</h4>
+                <p>부산 기장군 일광읍 학리 287-2<br>
+                쪽문까지 도보 3분</p>
+            </div>
+            <div class="transport-item">
+                <h4>🚇 지하철</h4>
+                <p>부산 동해선 일광역 1번 출구에서<br>
+                택시/버스 약 5분</p>
+            </div>
+            <div class="transport-item">
+                <h4>🅿️ 제2주차장</h4>
+                <p>부산 기장군 일광읍 학리 251-8<br>
+                정문까지 도보 1분</p>
+            </div>
+        </div>
+
+        <div class="map-buttons">
+            <button onclick="window.open('https://naver.me/GDQWvNhF')">네이버지도</button>
+            <button onclick="window.open('https://kko.to/nRJwYt6YDV')">카카오맵</button>
+        </div>
+    </section>
+
+    <section class="account">
+        <h2 class="section-title">마음 전하실 곳</h2>
+        <p class="account-intro">
+            참석이 어려우신 분들을 위해<br>
+            계좌번호를 기재하였습니다.<br>
+            너그러운 마음으로 양해 부탁드립니다.
+        </p>
+
+        <div class="account-container">
+            <div class="account-side">
+                <div class="side-header" onclick="toggleSide('groom')">
+                    <span>신랑측</span>
+                    <svg id="arrow-groom" class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="side-content" id="content-groom">
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">신랑</span> <span class="name">안욱진</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">신한은행 110-378-071816</span>
+                            <button class="btn-copy" onclick="copyAccount('110-378-071816')">복사</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="account-side">
+                <div class="side-header" onclick="toggleSide('bride')">
+                    <span>신부측</span>
+                    <svg id="arrow-bride" class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </div>
+                <div class="side-content" id="content-bride">
+                    <div class="person-row">
+                        <div class="person-header">
+                            <span class="title">신부</span> <span class="name">김민경</span>
+                        </div>
+                        <div class="account-number-row">
+                            <span class="bank">농협은행 3021055519071</span>
+                            <button class="btn-copy" onclick="copyAccount('3021055519071')">복사</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="rsvp-section">
+        <h2 class="section-title">참석 의사 전달</h2>
+        <p class="rsvp-intro">
+            축하의 마음으로 참석해주시는<br>
+            모든 분들을 귀하게 맞이하기 위해<br>
+            참석 의사를 미리 여쭈어보고자 합니다.
+        </p>
+        <button class="btn-rsvp-open" onclick="openRSVPModal()">참석 의사 작성하기</button>
+    </section>
+
+    <div id="rsvpModal" class="rsvp-modal">
+        <div class="rsvp-modal-content">
+            <span class="close-rsvp" onclick="closeRSVPModal()">&times;</span>
+            <h3>참석 의사 전달</h3>
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="rsvpName">성함</label>
+                    <input type="text" id="rsvpName" name="name" placeholder="성함을 입력해주세요" required>
+                </div>
+                <div class="form-group">
+                    <label>구분</label>
+                    <div class="radio-group">
+                        <input type="radio" id="side-groom" name="side" value="신랑측" checked>
+                        <label for="side-groom">신랑측</label>
+                        <input type="radio" id="side-bride" name="side" value="신부측">
+                        <label for="side-bride">신부측</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="rsvpRelation">관계</label>
+                    <select id="rsvpRelation" name="relation" onchange="toggleCustomRelation()">
+                        <option value="가족">가족</option>
+                        <option value="친구">친구</option>
+                        <option value="직장동료">직장동료</option>
+                        <option value="custom">직접 입력</option>
+                    </select>
+                    <input type="text" id="rsvpRelationCustom" class="custom-text-input" placeholder="관계를 입력해주세요 (예: 대학 동기)">
+                </div>
+                <div class="form-group">
+                    <label>참석 여부</label>
+                    <div class="radio-group">
+                        <input type="radio" id="attend-yes" name="attendance" value="참석" checked>
+                        <label for="attend-yes">참석</label>
+                        <input type="radio" id="attend-no" name="attendance" value="미참석">
+                        <label for="attend-no">미참석</label>
+                    </div>
+                </div>
+                <div class="form-group" id="group-count">
+                    <label for="rsvpCount">참석 인원 (본인 포함)</label>
+                    <select id="rsvpCount" name="count" onchange="toggleCustomCount()">
+                        <option value="1">1명</option>
+                        <option value="2">2명</option>
+                        <option value="3">3명</option>
+                        <option value="4">4명</option>
+                        <option value="custom">5명 이상 (직접 입력)</option>
+                    </select>
+                    <input type="number" id="rsvpCountCustom" class="custom-number-input" placeholder="정확한 인원수를 입력해주세요" min="5">
+                </div>
+                <div class="form-group" id="group-meal">
+                    <label>식사 여부</label>
+                    <div class="radio-group">
+                        <input type="radio" id="meal-yes" name="meal" value="식사함" checked>
+                        <label for="meal-yes">식사함</label>
+                        <input type="radio" id="meal-no" name="meal" value="식사안함">
+                        <label for="meal-no">식사안함</label>
+                    </div>
+                </div>
+                <button type="button" class="btn-rsvp-submit" onclick="submitRSVP()">전달하기</button>
+            </form>
+        </div>
+    </div>
+
+    <section class="share">
+        <h2 class="section-title">공유하기</h2>
+        <div class="share-buttons">
+            <button onclick="shareKakao()" class="kakao">카카오톡</button>
+            <button onclick="copyLink()" class="link">링크 복사</button>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 욱진 ❤️ 민경 Wedding</p>
+    </footer>
+
+    <div id="galleryModal" class="gallery-modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeGalleryModal()">&times;</span>
+            <img id="modalImage" src="" alt="">
+            <button class="nav-btn prev-btn" onclick="prevImage()">&#8249;</button>
+            <button class="nav-btn next-btn" onclick="nextImage()">&#8250;</button>
+            <div class="modal-counter">
+                <span id="currentIndex">1</span> / <span id="totalImages">9</span>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpKeyId=5qz58jweso&submodules=geocoder"></script>
+    <script src="script.js"></script>
+</body>
+</html>
