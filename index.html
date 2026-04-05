@@ -68,6 +68,77 @@
         </div>
     </section>
 
+    <section class="rsvp-section">
+        <h2 class="section-title">참석 의사 전달</h2>
+        <p class="rsvp-intro">
+            저희의 첫걸음을 축복해 주시는 모든 분을 정성껏 모시고자<br>
+            참석 여부를 미리 여쭈어보고자 합니다.
+        </p>
+        <button class="btn-rsvp-open" onclick="openRSVPModal()">참석 의사 작성하기</button>
+    </section>
+
+    <div id="rsvpModal" class="rsvp-modal">
+        <div class="rsvp-modal-content">
+            <span class="close-rsvp" onclick="closeRSVPModal()">&times;</span>
+            <h3>참석 의사 전달</h3>
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="rsvpName">성함</label>
+                    <input type="text" id="rsvpName" name="name" placeholder="성함을 입력해주세요" required>
+                </div>
+                <div class="form-group">
+                    <label>구분</label>
+                    <div class="radio-group">
+                        <input type="radio" id="side-groom" name="side" value="신랑측" checked>
+                        <label for="side-groom">신랑측</label>
+                        <input type="radio" id="side-bride" name="side" value="신부측">
+                        <label for="side-bride">신부측</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="rsvpRelation">관계</label>
+                    <select id="rsvpRelation" name="relation" onchange="toggleCustomRelation()">
+                        <option value="가족">가족</option>
+                        <option value="친구">친구</option>
+                        <option value="직장동료">직장동료</option>
+                        <option value="custom">직접 입력</option>
+                    </select>
+                    <input type="text" id="rsvpRelationCustom" class="custom-text-input" placeholder="관계를 입력해주세요 (예: 대학 동기)">
+                </div>
+                <div class="form-group">
+                    <label>참석 여부</label>
+                    <div class="radio-group">
+                        <input type="radio" id="attend-yes" name="attendance" value="참석" checked>
+                        <label for="attend-yes">참석</label>
+                        <input type="radio" id="attend-no" name="attendance" value="미참석">
+                        <label for="attend-no">미참석</label>
+                    </div>
+                </div>
+                <div class="form-group" id="group-count">
+                    <label for="rsvpCount">참석 인원 (본인 포함)</label>
+                    <select id="rsvpCount" name="count" onchange="toggleCustomCount()">
+                        <option value="1">1명</option>
+                        <option value="2">2명</option>
+                        <option value="3">3명</option>
+                        <option value="4">4명</option>
+                        <option value="custom">5명 이상 (직접 입력)</option>
+                    </select>
+                    <input type="number" id="rsvpCountCustom" class="custom-number-input" placeholder="정확한 인원수를 입력해주세요" min="5">
+                </div>
+                <div class="form-group" id="group-meal">
+                    <label>식사 여부</label>
+                    <div class="radio-group">
+                        <input type="radio" id="meal-yes" name="meal" value="식사함" checked>
+                        <label for="meal-yes">식사함</label>
+                        <input type="radio" id="meal-no" name="meal" value="식사안함">
+                        <label for="meal-no">식사안함</label>
+                    </div>
+                </div>
+                <button type="button" class="btn-rsvp-submit" onclick="submitRSVP()">전달하기</button>
+            </form>
+        </div>
+    </div>
+
     <section class="greeting" id="main-content">
         <div class="couple-intro">
             <div class="couple-photos">
@@ -253,78 +324,6 @@
             </div>
         </div>
     </section>
-
-    <section class="rsvp-section">
-        <h2 class="section-title">참석 의사 전달</h2>
-        <p class="rsvp-intro">
-            축하의 마음으로 참석해주시는<br>
-            모든 분들을 귀하게 맞이하기 위해<br>
-            참석 의사를 미리 여쭈어보고자 합니다.
-        </p>
-        <button class="btn-rsvp-open" onclick="openRSVPModal()">참석 의사 작성하기</button>
-    </section>
-
-    <div id="rsvpModal" class="rsvp-modal">
-        <div class="rsvp-modal-content">
-            <span class="close-rsvp" onclick="closeRSVPModal()">&times;</span>
-            <h3>참석 의사 전달</h3>
-            <form id="rsvpForm">
-                <div class="form-group">
-                    <label for="rsvpName">성함</label>
-                    <input type="text" id="rsvpName" name="name" placeholder="성함을 입력해주세요" required>
-                </div>
-                <div class="form-group">
-                    <label>구분</label>
-                    <div class="radio-group">
-                        <input type="radio" id="side-groom" name="side" value="신랑측" checked>
-                        <label for="side-groom">신랑측</label>
-                        <input type="radio" id="side-bride" name="side" value="신부측">
-                        <label for="side-bride">신부측</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="rsvpRelation">관계</label>
-                    <select id="rsvpRelation" name="relation" onchange="toggleCustomRelation()">
-                        <option value="가족">가족</option>
-                        <option value="친구">친구</option>
-                        <option value="직장동료">직장동료</option>
-                        <option value="custom">직접 입력</option>
-                    </select>
-                    <input type="text" id="rsvpRelationCustom" class="custom-text-input" placeholder="관계를 입력해주세요 (예: 대학 동기)">
-                </div>
-                <div class="form-group">
-                    <label>참석 여부</label>
-                    <div class="radio-group">
-                        <input type="radio" id="attend-yes" name="attendance" value="참석" checked>
-                        <label for="attend-yes">참석</label>
-                        <input type="radio" id="attend-no" name="attendance" value="미참석">
-                        <label for="attend-no">미참석</label>
-                    </div>
-                </div>
-                <div class="form-group" id="group-count">
-                    <label for="rsvpCount">참석 인원 (본인 포함)</label>
-                    <select id="rsvpCount" name="count" onchange="toggleCustomCount()">
-                        <option value="1">1명</option>
-                        <option value="2">2명</option>
-                        <option value="3">3명</option>
-                        <option value="4">4명</option>
-                        <option value="custom">5명 이상 (직접 입력)</option>
-                    </select>
-                    <input type="number" id="rsvpCountCustom" class="custom-number-input" placeholder="정확한 인원수를 입력해주세요" min="5">
-                </div>
-                <div class="form-group" id="group-meal">
-                    <label>식사 여부</label>
-                    <div class="radio-group">
-                        <input type="radio" id="meal-yes" name="meal" value="식사함" checked>
-                        <label for="meal-yes">식사함</label>
-                        <input type="radio" id="meal-no" name="meal" value="식사안함">
-                        <label for="meal-no">식사안함</label>
-                    </div>
-                </div>
-                <button type="button" class="btn-rsvp-submit" onclick="submitRSVP()">전달하기</button>
-            </form>
-        </div>
-    </div>
 
     <section class="share">
         <h2 class="section-title">공유하기</h2>
